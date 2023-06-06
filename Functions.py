@@ -10,12 +10,13 @@ class Functions():
 		ether = Ether(dst="ff:ff:ff:ff:ff:ff")
 		pkt = ether / arp
 
-		result_srp = srp(pkt, iface=networkID, timeout=1, inter=0.2)[0]
-
+		result_srp = srp(pkt, iface=networkID, timeout=10, inter=0.1)[0]
+		print(result_srp)        
 		outputResult = None
 
 		for sentPackage, receivedPackage in result_srp:
-			print(f"Requested ip is: {receivedPackage.psrc}, with MAC address: {receivedPackage.hwsrc}")
+			print("Requested ip is:" + receivedPackage.psrc + " with MAC address:" + receivedPackage.hwsrc)
 			outputResult = receivedPackage.hwsrc
+
 
 		return outputResult

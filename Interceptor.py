@@ -21,8 +21,8 @@ class Interceptor():
 
 	def interceltARP(self):
 		if self.pkt[Ether].dst == self.macAttacker:
-			if self.haslayer(IP):
-				if self.pkt[IP].dst in self.macSpoof:
+			if self.pkt.haslayer(IP):
+				if self.pkt[IP].dst in self.ipToSpoof:
 					self.pkt[Ether].dst = self.macSpoof[self.ipToSpoof.index(self.pkt[IP].dst)]
 				else:
 					self.pkt[Ether].dst = self.macVictim

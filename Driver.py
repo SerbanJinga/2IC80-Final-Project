@@ -1,7 +1,7 @@
 from scapy.all import * 
-from ARPStart import * 
+from ARPStart import ARPStart
 
-networkID = "ens0s3"
+networkID = "enp0s3"
 ipVictim = "192.168.56.101"
 ipSpoof = "192.168.56.102"
 silentMode = False
